@@ -11,15 +11,26 @@ public class TabGroup : MonoBehaviour, IPointerClickHandler
     [SerializeField] Transform shadow;
 
     TabButton currentTab;
+    bool isOpen;
 
     public void Open()
     {
         gameObject.SetActive(true);
+        isOpen = true;
     }
 
     public void Close()
     {
         gameObject.SetActive(false);
+        isOpen = false;
+    }
+
+    public void Toggle()
+    {
+        if (isOpen)
+            Close();
+        else
+            Open();
     }
 
     public void HideAll()
