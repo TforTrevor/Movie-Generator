@@ -1,0 +1,33 @@
+{
+    "name": "Actions",
+    "maps": [
+        {
+            "name": "Default",
+            "id": "898ac9c4-7c32-4fe0-a770-c3c65ddf5cfd",
+            "actions": [
+                {
+                    "name": "Back",
+                    "type": "Button",
+                    "id": "70d47d8e-8d3c-4774-80a6-9c791cff7845",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b2bb317c-2ef0-4520-b9d4-2bb5d03a3af1",
+                    "path": "*/{Back}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Back",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
