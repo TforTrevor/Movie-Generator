@@ -60,12 +60,15 @@ public class AddTab : MonoBehaviour
 
                 JSONObject json = new JSONObject(webRequest.downloadHandler.text);
                 JSONObject pages = json.GetField("query").GetField("pages").list[0];
-                posterUrl = pages.GetField("original").GetField("source").str;
-
-                GameManager.Instance.LoadImage(posterUrl, (Sprite sprite) =>
+                if (pages.HasField("original"))
                 {
-                    movieImage.sprite = sprite;
-                });
+                    posterUrl = pages.GetField("original").GetField("source").str;
+
+                    GameManager.Instance.LoadImage(posterUrl, (Sprite sprite) =>
+                    {
+                        movieImage.sprite = sprite;
+                    });
+                }                
             }
         }
 

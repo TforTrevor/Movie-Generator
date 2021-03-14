@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] TabGroup tabGroup;
     [SerializeField] TabButton queueTab;
+    [SerializeField] Sprite nullSprite;
 
     Dictionary<string, Sprite> spriteDictionary = new Dictionary<string, Sprite>();
 
@@ -74,7 +75,11 @@ public class GameManager : MonoBehaviour
             {
                 StartCoroutine(LoadImageRoutine(imageUrl, callback));
             }
-        }        
+        }
+        else
+        {
+            callback.Invoke(nullSprite);
+        }
     }
 
     IEnumerator LoadImageRoutine(string imageUrl, System.Action<Sprite> callback)
