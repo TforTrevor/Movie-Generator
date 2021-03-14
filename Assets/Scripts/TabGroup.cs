@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using DG.Tweening;
 
 public class TabGroup : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] TextMeshProUGUI header;
     [SerializeField] List<TabButton> tabs;
-    [SerializeField] Transform shadow;
+    [SerializeField] Transform panel;
+    [SerializeField] Image shadow;
 
     TabButton currentTab;
     bool isOpen;
@@ -17,12 +20,18 @@ public class TabGroup : MonoBehaviour, IPointerClickHandler
     {
         gameObject.SetActive(true);
         isOpen = true;
+        shadow.DOFade(0.75f, 0.5f);
+        panel.transform.DOMoveX(360, 0.3f).SetEase(Ease.InOutCubic);
     }
 
     public void Close()
     {
-        gameObject.SetActive(false);
         isOpen = false;
+        shadow.DOFade(0, 0.25f);
+        panel.transform.DOMoveX(-360, 0.3f).SetEase(Ease.InOutCubic).OnComplete(() =>
+        {
+            gameObject.SetActive(false);
+        });        
     }
 
     public void Toggle()

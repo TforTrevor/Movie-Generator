@@ -57,7 +57,7 @@ public class QueueTab : MonoBehaviour
     {
         elements.Remove(element);
         GameManager.Instance.queuedMovies.Remove(element.movie);
-        Destroy(element.gameObject);
+        //Destroy(element.gameObject);
 
         GameManager.Instance.SaveGame();
     }
@@ -67,7 +67,7 @@ public class QueueTab : MonoBehaviour
         elements.Remove(element);
         GameManager.Instance.queuedMovies.Remove(element.movie);
         GameManager.Instance.completedMovies.Add(element.movie);
-        Destroy(element.gameObject);
+        //Destroy(element.gameObject);
 
         GameManager.Instance.SaveGame();
     }

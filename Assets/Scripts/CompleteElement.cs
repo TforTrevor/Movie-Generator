@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using DG.Tweening;
 
 public class CompleteElement : MonoBehaviour
 {
@@ -14,5 +15,9 @@ public class CompleteElement : MonoBehaviour
     public void Remove()
     {
         completeTab.Remove(this);
+        transform.DOScaleY(0, 0.25f).SetEase(Ease.InOutCubic).OnComplete(() =>
+        {
+            Destroy(gameObject);
+        });
     }
 }

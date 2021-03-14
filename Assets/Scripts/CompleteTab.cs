@@ -51,7 +51,7 @@ public class CompleteTab : MonoBehaviour
         elements.Remove(element);
         GameManager.Instance.completedMovies.Remove(element.movie);
         GameManager.Instance.queuedMovies.Add(element.movie);
-        Destroy(element.gameObject);
+        //Destroy(element.gameObject);
 
         GameManager.Instance.SaveGame();
     }
