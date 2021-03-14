@@ -37,7 +37,7 @@ public class AddTab : MonoBehaviour
     {
         addButton.interactable = false;
 
-        string name = System.Uri.EscapeUriString(titleInput.text + " film");
+        string name = System.Uri.EscapeUriString(titleInput.text);
 
         UnityWebRequest searchRequest = UnityWebRequest.Get("https://en.wikipedia.org/w/api.php?action=opensearch&search=" + name + "&limit=1&namespace=0&format=json");
         yield return searchRequest.SendWebRequest();
@@ -68,7 +68,15 @@ public class AddTab : MonoBehaviour
                     {
                         movieImage.sprite = sprite;
                     });
-                }                
+                }
+                else
+                {
+                    posterUrl = "";
+                    GameManager.Instance.LoadImage(posterUrl, (Sprite sprite) =>
+                    {
+                        movieImage.sprite = sprite;
+                    });
+                }
             }
         }
 
